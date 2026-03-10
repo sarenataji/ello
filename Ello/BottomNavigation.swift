@@ -17,10 +17,10 @@ struct BottomNavigation: View {
         .padding(.vertical, 20)
         .background(
             RoundedRectangle(cornerRadius: 25)
-                .fill(Color.white.opacity(0.05))
+                .fill(Color.accent.opacity(0.05))
                 .overlay(
                     RoundedRectangle(cornerRadius: 25)
-                        .stroke(Color.white.opacity(0.1), lineWidth: 1)
+                        .stroke(Color.muted.opacity(0.1), lineWidth: 1)
                 )
         )
         .padding(.horizontal)
@@ -36,12 +36,12 @@ struct NavigationButton: View {
         Button(action: action) {
             VStack(spacing: 4) {
                 Image(systemName: iconName(for: tab))
-                    .font(.title2)
-                    .foregroundColor(isSelected ? .white : .gray)
+                    .font(.system(size: 20, weight: isSelected ? .bold : .regular))
+                    .foregroundColor(isSelected ? .appForeground : .mutedForeground)
                 
                 Text(tab.rawValue)
-                    .font(.caption)
-                    .foregroundColor(isSelected ? .white : .gray)
+                    .font(.system(size: 12, weight: .medium, design: .rounded))
+                    .foregroundColor(isSelected ? .appForeground : .mutedForeground)
             }
             .frame(maxWidth: .infinity)
         }

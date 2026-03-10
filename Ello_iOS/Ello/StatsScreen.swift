@@ -6,15 +6,14 @@ struct StatsScreen: View {
     
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
+            Color.appBackground.ignoresSafeArea()
             
             VStack(spacing: 30) {
                 Spacer()
                 
                 Text("Your Progress")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
+                    .font(.system(size: 28, weight: .bold, design: .rounded))
+                    .foregroundColor(.appForeground)
                 
                 LevelProgressCard()
                 

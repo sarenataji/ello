@@ -18,7 +18,7 @@ struct FocusScreen: View {
     
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
+            Color.appBackground.ignoresSafeArea()
             
             VStack(spacing: 40) {
                 Spacer()
@@ -41,7 +41,7 @@ struct FocusScreen: View {
         .sheet(isPresented: $showTip) {
             ShieldScreen(tip: currentTip) {
                 showTip = false
-                focusManager.penalizeXP()
+                xpManager.penalizeXP()
             }
         }
     }
@@ -111,7 +111,7 @@ struct ActiveFocusSession: View {
             }
             
             Button(action: {
-                let hours = elapsedSeconds / 3600
+                let _ = elapsedSeconds / 3600
                 // Will be handled by environment object
                 focusManager.endFocusSession()
             }) {
